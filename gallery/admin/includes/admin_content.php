@@ -1,3 +1,8 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+
 <div class="container-fluid">
 
 <!-- Page Heading -->
@@ -9,11 +14,23 @@
         </h1>
 
         <?php
-            $sql = "SELECT * FROM users WHERE id=1";
-            $result = $database->query($sql);
-            $user_found = mysqli_fetch_array($result);
 
-            echo $user_found['username'];
+            // $result_set = User::find_all_user();
+
+            // while($row = mysqli_fetch_array($result_set)){
+            //     echo $row["username"] . "<br>";
+            // }
+
+            $found_user = User::find_user_by_id(2);
+            echo $found_user->username;
+
+            // $user = User::instantiation($found_user);
+            // echo $user->username;
+            // echo "<br>";
+            // $users = User::find_all_user();
+            // foreach($users as $user){
+            //     echo $user->username . "<br>";
+            // }
 
         ?>
         <ol class="breadcrumb">
